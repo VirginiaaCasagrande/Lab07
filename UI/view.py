@@ -49,6 +49,10 @@ class View:
         # TODO
 
         # Sezione 3: Libri
+        self.btn_mostra_libri = ft.Button(content="Mostra Libri",
+                                          on_click=self.controller.handler_mostra_libri)
+
+        self.list_view_libri = ft.ListView()
 
         # TODO
 
@@ -74,6 +78,8 @@ class View:
             # TODO
 
             # Sezione 3: Libri
+            self.btn_mostra_libri,
+            self.list_view_libri,
 
             # TODO
         )

@@ -42,6 +42,30 @@ class Controller:
     # TODO
 
     # CALLBACKS DROPDOWN
+    def handler_mostra_libri(self,e):
+        id_biblioteca = self._view.selezione_biblioteca.value
+        genere = self._view.selezione_genere.value
+
+        if id_biblioteca=='nessuno':
+            id_biblioteca = None
+
+        if genere == 'Nessun filtro':
+            genere = None
+
+        libri = self._model.get_libri_filtrati(id_biblioteca, genere)  #Recupero dal Model i libri filtrati
+
+        self._view.list_view_libri.controls.clear()
+
+        if len(libri)==0:
+            self._view.alert.show_alert('Nessun libro trovato')
+
+        else:
+            for libro in libri:
+                self._view.list_view_libri.controls.append(ft.Text(str(libro)))
+
+        self._view.update()
+
+
     # TODO
 
     # AZIONE: MOSTRA LIBRI
