@@ -18,6 +18,13 @@ class Controller:
         self.genere_selezionato = None
 
     # POPOLA DROPDOWN
+    def popola_dropdown_biblioteche(self):
+        biblioteche = self._model.get_biblioteche()  #recupero le biblioteche
+
+        for biblioteca in biblioteche:  #scorro tutte le biblioteche
+            self._view.selezione_biblioteca.options.append(ft.DropdownOption(key=str(biblioteca.id), text=biblioteca.nome))  #creo
+            #una voce nella tendina con testo biblioteca.nome
+        self._view.update()
     # TODO
 
     # CALLBACKS DROPDOWN

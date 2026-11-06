@@ -36,6 +36,12 @@ class View:
         self.txt_titolo = ft.Text(value="Biblioteche di Torino", size=38, weight=ft.FontWeight.BOLD)
 
         # --- Sezione 2: Filtraggio ---
+        self.selezione_biblioteca = ft.Dropdown(width=400,
+                                                label='Biblioteca',
+                                                options=[],
+                                                )
+
+
         # TODO
 
         # Sezione 3: Libri
@@ -53,6 +59,8 @@ class View:
             ft.Divider(),
 
             # Sezione 2: Filtraggio
+            self.selezione_biblioteca,
+
             # TODO
 
             # Sezione 3: Libri
@@ -61,6 +69,7 @@ class View:
 
         self.page.scroll = "adaptive"
         self.page.update()
+        self.controller.popola_dropdown_biblioteche()
 
     def cambia_tema(self, e):
         """ Cambia tema scuro/chiaro """
