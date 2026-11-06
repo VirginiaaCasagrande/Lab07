@@ -31,4 +31,3 @@ class BibliotecaDAO:
         cnx.close()
         return biblioteche
 
-    # TODO

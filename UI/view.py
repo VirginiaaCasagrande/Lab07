@@ -39,22 +39,21 @@ class View:
         self.selezione_biblioteca = ft.Dropdown(width=400,
                                                 label='Biblioteca',
                                                 options=[],
-                                                )                   #Crea la dropdown vuota
+                                                on_select=self.controller.handler_selezione_biblioteca,
+                                                )                   #Crea la Dropdown vuota
 
         self.selezione_genere = ft.Dropdown(width=200,
                                             label='Genere',
                                             options=[],
+                                            on_select=self.controller.handler_selezione_genere,
                                             )
 
-        # TODO
 
         # Sezione 3: Libri
         self.btn_mostra_libri = ft.Button(content="Mostra Libri",
                                           on_click=self.controller.handler_mostra_libri)
 
         self.list_view_libri = ft.ListView()
-
-        # TODO
 
         # --- Toggle Tema ---
         self.toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=self.cambia_tema)
@@ -75,13 +74,11 @@ class View:
                 alignment=ft.MainAxisAlignment.CENTER,
                 spacing=10
             ),
-            # TODO
 
             # Sezione 3: Libri
             self.btn_mostra_libri,
             self.list_view_libri,
 
-            # TODO
         )
 
         self.page.scroll = "adaptive"

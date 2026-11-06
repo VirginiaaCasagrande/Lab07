@@ -57,5 +57,3 @@ class LibroDAO:
         cnx.close()
         return libri
 
-
-    # TODO

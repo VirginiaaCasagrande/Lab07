@@ -35,13 +35,29 @@ class Controller:
         self._view.selezione_genere.options.append(ft.DropdownOption(key='nessuno', text='Nessun filtro'))
         for genere in generi:
             if genere not in generi_disponibili:
-                self._view.selezione_genere.options.append(ft.DropdownOption(text=genere))
+                self._view.selezione_genere.options.append(ft.DropdownOption(key=genere, text=genere))
                 generi_disponibili.append(genere)
 
         self._view.update()
-    # TODO
 
     # CALLBACKS DROPDOWN
+    def handler_selezione_biblioteca(self,e):
+        self.biblioteca_selezionata = e.control.value
+
+        if self.biblioteca_selezionata == 'nessuno':
+            self.biblioteca_selezionata = None
+
+        else:
+            self.biblioteca_selezionata = int(self.biblioteca_selezionata)
+
+    def handler_selezione_genere(self,e):
+        self.genere_selezionato= e.control.value
+
+        if self.genere_selezionato == 'nessuno':
+            self.genere_selezionato = None
+
+
+    # AZIONE: MOSTRA LIBRI
     def handler_mostra_libri(self,e):
         id_biblioteca = self._view.selezione_biblioteca.value
         genere = self._view.selezione_genere.value
@@ -49,7 +65,7 @@ class Controller:
         if id_biblioteca=='nessuno':
             id_biblioteca = None
 
-        if genere == 'Nessun filtro':
+        if genere == 'nessuno':
             genere = None
 
         libri = self._model.get_libri_filtrati(id_biblioteca, genere)  #Recupero dal Model i libri filtrati
@@ -65,8 +81,3 @@ class Controller:
 
         self._view.update()
 
-
-    # TODO
-
-    # AZIONE: MOSTRA LIBRI
-    # TODO
