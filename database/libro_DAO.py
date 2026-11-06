@@ -10,7 +10,7 @@ class LibroDAO:
     def __init__(self):
         pass
 
-    def get_libri(self):
+    def get_generi(self):
         cnx = DBConnect.get_connection()
 
         if cnx is None:
@@ -23,7 +23,7 @@ class LibroDAO:
 
         generi = []
         for row in cursor_dict:
-            genere= row[0]
+            genere= row['genere']
             generi.append(genere)
 
         cursor_dict.close()

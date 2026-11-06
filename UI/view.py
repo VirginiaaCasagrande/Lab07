@@ -41,14 +41,15 @@ class View:
                                                 options=[],
                                                 )                   #Crea la dropdown vuota
 
+        self.selezione_genere = ft.Dropdown(width=200,
+                                            label='Genere',
+                                            options=[],
+                                            )
 
         # TODO
 
         # Sezione 3: Libri
-        self.selezione_genere = ft.Dropdown(width=400,
-                                            label='Genere',
-                                            options=[],
-                                            )
+
         # TODO
 
         # --- Toggle Tema ---
@@ -63,17 +64,24 @@ class View:
             ft.Divider(),
 
             # Sezione 2: Filtraggio
-            self.selezione_biblioteca,
-
+            ft.Row(controls=[
+                self.selezione_biblioteca,
+                self.selezione_genere
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+                spacing=10
+            ),
             # TODO
 
             # Sezione 3: Libri
+
             # TODO
         )
 
         self.page.scroll = "adaptive"
         self.page.update()
         self.controller.popola_dropdown_biblioteche()
+        self.controller.popola_dropdown_genere()
 
     def cambia_tema(self, e):
         """ Cambia tema scuro/chiaro """

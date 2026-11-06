@@ -22,6 +22,7 @@ class Model:
 
     def get_generi(self):
         """Restituisce la lista di tutti i generi."""
+        return self._libro_dao.get_generi()
 
         # TODO
 
