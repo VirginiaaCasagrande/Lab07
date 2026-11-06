@@ -39,12 +39,16 @@ class View:
         self.selezione_biblioteca = ft.Dropdown(width=400,
                                                 label='Biblioteca',
                                                 options=[],
-                                                )
+                                                )                   #Crea la dropdown vuota
 
 
         # TODO
 
         # Sezione 3: Libri
+        self.selezione_genere = ft.Dropdown(width=400,
+                                            label='Genere',
+                                            options=[],
+                                            )
         # TODO
 
         # --- Toggle Tema ---
